@@ -21,6 +21,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    /* ANIMACIÓN SUAVE DE ENTRADA */
+    animation: fadePage 1.2s ease-out;
+}
+
+@keyframes fadePage {
+    from {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 a { text-decoration: none; }
@@ -44,7 +58,7 @@ a { text-decoration: none; }
          2px  2px 0 #000;
 }
 
-/* NUEVA CLASE PARA EL SIMULADOR */
+/* BOTÓN SIMULADOR */
 .btn-simulador {
     font-family: "BobbyJones";
     font-size: 32px;
