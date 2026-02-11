@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Menú</title>
+
+<style>
+@font-face {
+    font-family: "BobbyJones";
+    src: url("fuentes/BobbyJones.otf") format("opentype");
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url("imagenes/fondo.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a { text-decoration: none; }
+
+.btn-volver {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    font-family: "BobbyJones";
+    font-size: 32px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+}
+
+/* NUEVA CLASE PARA EL SIMULADOR */
+.btn-simulador {
+    font-family: "BobbyJones";
+    font-size: 32px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+
+    transition: transform 0.3s;
+}
+
+.btn-simulador:hover {
+    transform: scale(1.15);
+}
+
+h1 {
+    font-family: "BobbyJones";
+    font-size: 56px;
+    color: white;
+    margin-bottom: 40px;
+
+    text-shadow:
+        -3px -3px 0 #000,
+         3px -3px 0 #000,
+        -3px  3px 0 #000,
+         3px  3px 0 #000;
+}
+
+.botones {
+    display: flex;
+    gap: 40px;
+}
+
+img {
+    width: 220px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+img:hover {
+    transform: scale(1.12);
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="btn-volver">← Volver</a>
+
+<h1>Escoje una simulación</h1>
+
+<div class="botones">
+    <a href="img1.html"><img src="imagenes/boton1.png"></a>
+    <a href="img2.html"><img src="imagenes/boton2.png"></a>
+    <a href="img3.html"><img src="imagenes/boton3.png"></a>
+</div>
+
+<br><br>
+
+<a href="simulador.html">
+    <button class="btn-simulador">Simulador interactivo</button>
+</a>
+
+</body>
+</html>

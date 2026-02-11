@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Simulador del Ciclo del CO₂</title>
+
+<style>
+
+/* FUENTE BOBBY JONES */
+@font-face {
+    font-family: "BobbyJones";
+    src: url("fuentes/BobbyJones.otf") format("opentype");
+}
+
+body{
+    margin:0;
+    height:100vh;
+    background-image: url("imagenes/fondo.png");
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CONTENEDOR GENERAL */
+.contenedor{
+    display:flex;
+    gap:40px;
+    align-items:flex-start;
+}
+
+/* PANEL PRINCIPAL */
+.panel{
+    background: rgba(0,0,0,0.7);
+    padding:30px;
+    border-radius:20px;
+    color:white;
+    width:380px;
+    animation: aparecer 1s ease;
+}
+
+/* TITULO */
+.panel h2{
+    font-family: "BobbyJones";
+    text-align:center;
+    font-size:32px;
+    margin-top:0;
+}
+
+/* INPUT */
+input[type="number"]{
+    width:100%;
+    padding:10px;
+    border-radius:10px;
+    border:none;
+    margin-top:10px;
+}
+
+/* CHECKBOX */
+label{
+    display:block;
+    margin-top:15px;
+}
+
+/* BOTONES */
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-family:"BobbyJones";
+    font-size:18px;
+    transition: transform 0.2s;
+}
+
+button:hover{
+    transform: scale(1.05);
+}
+
+.btn-iniciar{ background:#27ae60; color:white; }
+.btn-ciclo{ background:#2980b9; color:white; }
+.btn-reset{ background:#c0392b; color:white; }
+
+/* ESTADO */
+#estado{
+    margin-top:20px;
+    font-size:16px;
+}
+
+/* TABLA */
+.tabla-container{
+    background: rgba(0,0,0,0.7);
+    padding:25px;
+    border-radius:20px;
+    color:white;
+    max-height:500px;
+    overflow-y:auto;
+    animation: aparecer 1s ease;
+}
+
+.tabla-container h3{
+    font-family:"BobbyJones";
+    margin-top:0;
+}
+
+table{
+    border-collapse: collapse;
+    width:500px;
+}
+
+th, td{
+    border:1px solid white;
+    padding:8px;
+    text-align:center;
+}
+
+th{
+    background: rgba(255,255,255,0.2);
+}
+
+/* ANIMACIÓN */
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="contenedor">
+
+    <!-- PANEL IZQUIERDO -->
+    <div class="panel">
+
+        <h2>Simulación CO₂</h2>
+
+        <!-- Carbono inicial -->
+        <input type="number" id="carbonoInicial" placeholder="Carbono inicial en atmósfera">
+
+        <!-- NUEVO: Carbono agregado por ciclo -->
+        <input type="number" id="carbonoNuevo" placeholder="CO₂ agregado este ciclo (opcional)">
+
+        <label>
+            <input type="checkbox" id="depredador">
+            Hay depredador
+        </label>
+
+        <button class="btn-iniciar" onclick="iniciarSimulacion()">Iniciar</button>
+        <button class="btn-ciclo" onclick="ejecutarCiclo()">Ejecutar Ciclo</button>
+        <button class="btn-reset" onclick="reiniciarSimulacion()">Reiniciar</button>
+
+        <div id="estado"></div>
+    </div>
+
+    <!-- TABLA DERECHA -->
+    <div class="tabla-container">
+
+        <h3>Historial de Ciclos</h3>
+
+        <table id="tablaCiclos">
+            <thead>
+                <tr>
+                    <th>Ciclo</th>
+                    <th>Atmósfera</th>
+                    <th>Robles</th>
+                    <th>Ciervos</th>
+                    <th>Suelo</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<script src="simulacion.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador del Ciclo del CO₂</title>
+
+    <style>
+        @font-face {
+            font-family: "BobbyJones";
+            src: url("fuentes/BobbyJones.otf") format("opentype");
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url("imagenes/fondo.png");
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-titulo {
+            font-family: "BobbyJones";
+            font-size: 64px;
+            color: white;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+
+            text-shadow:
+                -3px -3px 0 #000,
+                 3px -3px 0 #000,
+                -3px  3px 0 #000,
+                 3px  3px 0 #000;
+
+            transition: transform 0.3s;
+        }
+
+        .btn-titulo:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<a href="menu.html">
+    <button class="btn-titulo">
+        SIMULADOR DEL<br>
+        CICLO DEL CO₂
+    </button>
+</a>
+
+</body>
+</html>

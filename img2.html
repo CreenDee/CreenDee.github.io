@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Imagen</title>
+
+    <style>
+        /* FUENTE */
+        @font-face {
+            font-family: "BobbyJones";
+            src: url("fuentes/BobbyJones.otf") format("opentype");
+        }
+
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            overflow: hidden;
+            position: relative;
+
+            /* ANIMACIÓN GENERAL SUAVE */
+            animation: fadePage 1.2s ease-out;
+        }
+
+        @keyframes fadePage {
+            from {
+                opacity: 0;
+                transform: scale(1.02);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* IMAGEN DE FONDO */
+        .fondo {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* IMAGEN ciclo1 CENTRADA */
+        .ciclo1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .ciclo1:hover {
+            transform: translate(-50%, -50%) scale(1.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        }
+
+        /* BOTÓN VOLVER (sin cambios) */
+        .volver {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-family: "BobbyJones", sans-serif;
+            font-size: 32px;
+            color: white;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+
+            text-shadow:
+                -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000;
+
+            z-index: 10;
+            transition: transform 0.3s;
+        }
+
+        .volver:hover {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="menu.html" class="volver">← Volver</a>
+
+    <!-- Fondo -->
+    <img src="imagenes/imagen2.png" alt="Imagen completa" class="fondo">
+
+    <!-- Imagen centrada -->
+    <img src="imagenes/ciclo2.png" alt="Ciclo 1" class="ciclo1">
+
+</body>
+</html>
